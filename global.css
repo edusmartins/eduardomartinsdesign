@@ -31,15 +31,15 @@
 	/** fonts **/
 	--default-font-size: 16px;
 
-	--fs-12: 0.75em;
-	--fs-16: 1em;
-	--fs-18: 1.125em;
-	--fs-24: 1.5em;
-	--fs-32: 2em;
-	--fs-40: 2.5em;
-	--fs-48: max(3em, 48px);
-	--fs-64: max(4em, 64px);
-	--fs-120: max(7.5em, 120px);
+	--fs-12: 0.75rem;
+	--fs-16: 1rem;
+	--fs-18: 1.125rem;
+	--fs-24: 1.5rem;
+	--fs-32: 2rem;
+	--fs-40: 2.5rem;
+	--fs-48: max(3rem, 48px);
+	--fs-64: max(4rem, 64px);
+	--fs-120: max(7.5rem, 120px);
 
 	--ff-inter: 'Inter', sans-serif;
 	--ff-playfair: 'Playfair Display';
