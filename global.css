@@ -1,0 +1,278 @@
+/*
+
+  Variables
+
+*/
+
+:root {
+	/* colors */
+	--black-100: rgba(36, 31, 25, 1);
+	--black-80: rgba(36, 31, 25, 0.8);
+	--black-60: rgba(36, 31, 25, 0.6);
+	--black-40: rgba(36, 31, 25, 0.4);
+	--black-25: rgba(36, 31, 25, 0.25);
+	--black-10: rgba(36, 31, 25, 0.1);
+	--black-0: rgba(36, 31, 25, 0.025);
+
+	--white-100: rgba(255, 255, 255, 1);
+	--white-80: rgba(255, 255, 255, 0.8);
+	--white-60: rgba(255, 255, 255, 0.6);
+	--white-40: rgba(255, 255, 255, 0.4);
+	--white-20: rgba(255, 255, 255, 0.2);
+	--white-10: rgba(255, 255, 255, 0.1);
+	--white-0: rgba(255, 255, 255, 0.025);
+
+	--accent-100: rgba(190, 143, 110, 1);
+	--accent-hover100: rgba(135, 129, 110, 1);
+
+	--hover-100: rgba(237, 233, 227, 1);
+	--selected-100: rgba(231, 215, 201, 1)
+
+	/** fonts **/
+	--default-font-size: 16px;
+
+	--fs-12: 0.75em;
+	--fs-16: 1em;
+	--fs-18: 1.125em;
+	--fs-24: 1.5em;
+	--fs-32: 2em;
+	--fs-40: 2.5em;
+	--fs-48: max(3em, 48px);
+	--fs-64: max(4em, 64px);
+	--fs-120: max(7.5em, 120px);
+
+	--ff-inter: 'Inter', sans-serif;
+	--ff-playfair: 'Playfair Display';
+
+	--line-height-normal: 150%;
+	--line-height-small: 120%;
+}
+
+/* 
+	?
+	? ----> altura de linha, spacing e headings
+	?
+*/
+* {
+	box-sizing: border-box;
+}
+body,
+html {
+	padding: 0;
+	margin: 0;
+}
+html {
+	font-size: var(--fs-16);
+	font-family: var(--ff-inter);
+	line-height: var(--line-height-normal);
+}
+
+h6 {
+	font-family: var(--ff-inter);
+	font-weight: 600;
+	font-size: var(--fs-16);
+	color: var(--black-100);
+}
+h5 {
+	font-family: var(--ff-inter);
+	font-weight: 700;
+	font-size: var(--fs-16);
+	color: var(--black-100);
+}
+h4 {
+	font-family: var(--ff-inter);
+	font-weight: 700;
+	font-size: var(--fs-24);
+	color: var(--black-100);
+}
+h3 {
+	font-family: var(--ff-inter);
+	font-weight: 700;
+	font-size: var(--fs-32);
+	color: var(--black-100);
+	line-height: var(--line-height-small);
+}
+h2 {
+	font-family: var(--ff-inter);
+	font-weight: 700;
+	font-size: var(--fs-48);
+	color: var(--black-100);
+	line-height: var(--line-height-small);
+}
+h1 {
+	font-family: var(--ff-inter);
+	font-weight: 700;
+	font-size: var(--fs-64);
+	color: var(--cinza-muito-escuro);
+	line-height: var(--line-height-small);
+}
+
+/* 
+	?
+	? ----> lists -- ol e ul
+	?
+*/
+ol,
+ul {
+	margin: 1em 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-gap: 1em;
+}
+
+li {
+	display: grid;
+	grid-template-columns: 0 1fr;
+	grid-gap: 1.75em;
+	align-items: start;
+}
+
+ul li:before {
+	content: '\2022';
+	font-size: 36px;
+	color: var(--black-100);
+}
+
+ol {
+	counter-reset: orderedlist;
+}
+
+ol li::before {
+	counter-increment: orderedlist;
+	content: counter(orderedlist);
+	width: 1rem;
+	padding: 0 4px;
+	margin-left: -8px;
+	text-align: center;
+	color: var(--white-100);
+	background-color: var(--black-100);
+	border-radius: 4px;
+}
+
+/* navigation */
+nav ul li:before {
+	display: none;
+}
+nav ul {
+	display: flex;
+	gap: 0;
+}
+
+nav ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	margin: 0 8px 0 0;
+}
+
+nav ul li:last-of-type {
+	margin: 0;
+}
+nav li a {
+	text-decoration: none;
+	color: var(--cinza-medio-escuro);
+	padding: 0.5em;
+	/* height: 1em; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	line-height: 1;
+}
+
+/* 
+	?
+	? ----> toggle switch
+	?
+*/
+
+.knobs,
+.layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.toggle-switch {
+	position: relative;
+	width: 4em;
+	height: 2em;
+	border-radius: 5px;
+}
+.checkbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+.knobs {
+	z-index: 2;
+}
+.layer {
+	width: 100%;
+	background-color: var(--black-100);
+	transition: 0.3s ease all;
+	z-index: 1;
+	border-radius: 5px;
+}
+.toggle-switch .knobs:before {
+	content: url('../img/ico/check.svg');
+	left: 0.5em;
+}
+.toggle-switch .knobs:after {
+	content: url('../img/ico/close_w.svg');
+	right: 0.5em;
+}
+
+.toggle-switch .knobs:before,
+.toggle-switch .knobs:after {
+	height: 1em;
+	width: 1em;
+	position: absolute;
+	top: 0.4em;
+	z-index: 1;
+}
+
+.toggle-switch .knobs span {
+	position: absolute;
+	border-radius: 5px;
+	left: 0.3em;
+	top: 0.3em;
+	background-color: var(--white-100);
+	z-index: 2;
+	height: 1.4em;
+	width: 1.4em;
+	transition: 200ms ease;
+	box-shadow: -3px 0px 6px var(--black-25);
+}
+
+.toggle-switch .checkbox:checked + .knobs span {
+	left: 2.3em;
+}
+
+.toggle-switch .checkbox:checked ~ .layer {
+	background-color: var(--accent-100);
+}
+
+.toggle-switch .checkbox:disabled ~ .layer,
+.toggle-switch .checkbox:disabled ~ .knobs {
+	opacity: 0.5;
+}
+.toggle-switch .checkbox:focus ~ .layer {
+	box-shadow: 0 0 0 2px var(--black-25);
+}
+
+.toggle-switch.rounded .knobs span {
+	border-radius: 1em;
+}
+.toggle-switch.rounded .layer {
+	border-radius: 2em;
+}
