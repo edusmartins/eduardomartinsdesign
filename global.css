@@ -119,6 +119,7 @@ button {
 	border: none;
 
 	font-family: var(--ff-inter);
+	font-size: var(--fs-16);
 	font-weight: 700;
 
 	transition: 200ms;
